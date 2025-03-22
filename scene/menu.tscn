@@ -1,0 +1,182 @@
+[gd_scene load_steps=6 format=3 uid="uid://b8fc1hkakoaol"]
+
+[ext_resource type="Texture2D" uid="uid://b88qod10ng4x4" path="res://BG.png" id="1_o2x4f"]
+[ext_resource type="Script" path="res://Script/MenuManager.gd" id="1_owwe7"]
+[ext_resource type="PackedScene" uid="uid://bjk0q6culi122" path="res://scene/PlayerSlot.tscn" id="2_2gjh4"]
+[ext_resource type="Script" path="res://Script/MenuScreen.gd" id="2_03lc5"]
+[ext_resource type="Script" path="res://Script/lobby.gd" id="4_nd0a3"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_owwe7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BackGroundImage" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 768.0
+offset_bottom = 432.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.605, 0.605)
+texture = ExtResource("1_o2x4f")
+
+[node name="BG" type="Panel" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -296.0
+offset_top = -197.5
+offset_right = 296.0
+offset_bottom = 197.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainMenu" type="Control" parent="CanvasLayer/BG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_03lc5")
+
+[node name="UsernameInput" type="LineEdit" parent="CanvasLayer/BG/MainMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -127.0
+offset_top = -82.0
+offset_right = 127.0
+offset_bottom = -51.0
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "Username..."
+
+[node name="IpInput" type="LineEdit" parent="CanvasLayer/BG/MainMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -127.0
+offset_top = -49.0
+offset_right = 127.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "localhost"
+
+[node name="PortInput" type="LineEdit" parent="CanvasLayer/BG/MainMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -127.0
+offset_top = -15.5
+offset_right = 127.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "8080"
+
+[node name="CreateLobbyButton" type="Button" parent="CanvasLayer/BG/MainMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -127.0
+offset_top = 22.0
+offset_right = -3.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Create Lobby"
+
+[node name="JoinLobbyButton" type="Button" parent="CanvasLayer/BG/MainMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 5.0
+offset_top = 22.0
+offset_right = 127.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Join Lobby"
+
+[node name="Lobby" type="Control" parent="CanvasLayer/BG"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_nd0a3")
+
+[node name="PlayerslotList" type="VBoxContainer" parent="CanvasLayer/BG/Lobby"]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 49.0
+offset_right = 333.0
+offset_bottom = 324.0
+
+[node name="PlayerSlot" parent="CanvasLayer/BG/Lobby/PlayerslotList" instance=ExtResource("2_2gjh4")]
+layout_mode = 2
+
+[node name="PlayerSlot2" parent="CanvasLayer/BG/Lobby/PlayerslotList" instance=ExtResource("2_2gjh4")]
+layout_mode = 2
+
+[node name="PlayerSlot3" parent="CanvasLayer/BG/Lobby/PlayerslotList" instance=ExtResource("2_2gjh4")]
+layout_mode = 2
+
+[node name="PlayerSlot4" parent="CanvasLayer/BG/Lobby/PlayerslotList" instance=ExtResource("2_2gjh4")]
+layout_mode = 2
+
+[node name="PlayerSlot5" parent="CanvasLayer/BG/Lobby/PlayerslotList" instance=ExtResource("2_2gjh4")]
+layout_mode = 2
+
+[node name="StartGameButton" type="Button" parent="CanvasLayer/BG/Lobby"]
+layout_mode = 0
+offset_left = 371.0
+offset_top = 282.5
+offset_right = 557.0
+offset_bottom = 315.5
+text = "Start Game"
+
+[node name="LeaveLobbyButton" type="Button" parent="CanvasLayer/BG/Lobby"]
+layout_mode = 0
+offset_left = 371.0
+offset_top = 325.0
+offset_right = 557.0
+offset_bottom = 357.0
+text = "Leave Lobby"
+
+[node name="LobbyUpdateTimer" type="Timer" parent="CanvasLayer/BG/Lobby"]
+wait_time = 0.1
+autostart = true
+
+[connection signal="pressed" from="CanvasLayer/BG/MainMenu/CreateLobbyButton" to="CanvasLayer/BG/MainMenu" method="_on_create_lobby_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/BG/MainMenu/JoinLobbyButton" to="CanvasLayer/BG/MainMenu" method="_on_join_lobby_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/BG/Lobby/StartGameButton" to="CanvasLayer/BG/Lobby" method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/BG/Lobby/LeaveLobbyButton" to="CanvasLayer/BG/Lobby" method="_on_leave_lobby_button_pressed"]
+[connection signal="timeout" from="CanvasLayer/BG/Lobby/LobbyUpdateTimer" to="CanvasLayer/BG/Lobby" method="update_ui"]
+[connection signal="timeout" from="CanvasLayer/BG/Lobby/LobbyUpdateTimer" to="CanvasLayer/BG/Lobby" method="_on_lobby_update_timer_timeout"]

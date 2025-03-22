@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjk0q6culi122"]
+
+[ext_resource type="Script" path="res://Script/player_slot.gd" id="1_wwobk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dtoq0"]
+
+[node name="PlayerSlot" type="Panel"]
+custom_minimum_size = Vector2(0, 40)
+offset_right = 256.0
+offset_bottom = 40.0
+script = ExtResource("1_wwobk")
+
+[node name="PlayerName" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_right = 183.0
+grow_vertical = 2
+text = "playernamejhdjashuja"
+label_settings = SubResource("LabelSettings_dtoq0")
+vertical_alignment = 1
+
+[node name="KickButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -13.0
+offset_right = -8.0
+offset_bottom = 13.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "X"
+
+[connection signal="pressed" from="KickButton" to="." method="_on_kick_button_pressed"]

@@ -1,0 +1,94 @@
+[gd_scene load_steps=13 format=3 uid="uid://b7qm244x3eoh2"]
+
+[ext_resource type="Texture2D" uid="uid://coefq0ax2eenc" path="res://texture/labor/door1.png" id="1_r8nha"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_knny8"]
+atlas = ExtResource("1_r8nha")
+region = Rect2(0, 64, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3fxv"]
+atlas = ExtResource("1_r8nha")
+region = Rect2(32, 64, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3h2p"]
+atlas = ExtResource("1_r8nha")
+region = Rect2(64, 64, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynjx6"]
+atlas = ExtResource("1_r8nha")
+region = Rect2(96, 64, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c5s56"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_knny8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l3fxv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r3h2p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynjx6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ggx4"]
+atlas = ExtResource("1_r8nha")
+region = Rect2(0, 80, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wjlq"]
+atlas = ExtResource("1_r8nha")
+region = Rect2(32, 80, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66ux0"]
+atlas = ExtResource("1_r8nha")
+region = Rect2(64, 80, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgxgb"]
+atlas = ExtResource("1_r8nha")
+region = Rect2(96, 80, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_88cs4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ggx4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6wjlq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66ux0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgxgb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8byhy"]
+size = Vector2(24, 7)
+
+[node name="computer" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_c5s56")
+autoplay = "default"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 16)
+sprite_frames = SubResource("SpriteFrames_88cs4")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 10.5)
+shape = SubResource("RectangleShape2D_8byhy")
